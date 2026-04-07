@@ -64,7 +64,7 @@ def lambda_handler(event, context):
         sns_message = json.loads(sns_message_str)
 
         for s3_record in sns_message['Records']:
-            name = s3_record['s3']['bucket']['name']
+            bucket = s3_record['s3']['bucket']['name']
             key = s3_record['s3']['object']['key']
 
             if is_valid_image(key):
